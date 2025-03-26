@@ -24,3 +24,6 @@ logging:
           pdmodel:
             font:
               FileSystemFontProvider: ERROR
+
+server:
+    port: 8087

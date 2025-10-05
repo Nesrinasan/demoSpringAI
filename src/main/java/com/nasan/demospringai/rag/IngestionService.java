@@ -16,25 +16,18 @@ public class IngestionService{
     private static final Logger log = LoggerFactory.getLogger(IngestionService.class);
     private final VectorStore vectorStore;
 
-    @Value("classpath:/docs/SSS.pdf")
+//    @Value("classpath:/docs/SSS.pdf")
+    @Value("classpath:/docs/siparisSSS.pdf")
     private Resource interviewDb;
 
     public IngestionService(VectorStore vectorStore) {
         this.vectorStore = vectorStore;
     }
 
-//    @Override
-//    public void run(String... args) throws Exception {
-//        var pdfReader = new PagePdfDocumentReader(interviewDb);
-//        TextSplitter textSplitter = new TokenTextSplitter();
-//        vectorStore.accept(textSplitter.apply(pdfReader.get()));
-//        log.info("VectorStore Loaded with data!");
-//    }
-
-
     public void addPdf() throws Exception {
         var pdfReader = new PagePdfDocumentReader(interviewDb);
-        TextSplitter textSplitter = new TokenTextSplitter();
+       TextSplitter textSplitter = new TokenTextSplitter(200, 80, 5, 10000, true);
+       // TextSplitter textSplitter = new TokenTextSplitter(); //CL100K_BASE encoding -> token
         vectorStore.accept(textSplitter.apply(pdfReader.get()));
         log.info("VectorStore Loaded with data!");
     }

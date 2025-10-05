@@ -32,7 +32,7 @@ public class ControllerAI {
      * @return
      */
     @GetMapping("/ai")
-    public String aiGeneration(String userInput){
+    public String aiGeneration(@RequestParam String userInput){
         return this.chatClient.prompt()
                 .user(userInput)
                 .call().content();
@@ -59,7 +59,7 @@ public class ControllerAI {
     @GetMapping("/ai/chatResponseEntity")
     public List<ActorFilms> chatResponse3(){
         return this.chatClient.prompt()
-                .user("Generate the filmography of 5 movies for Angelina Jolie and Emma Watson.I want Films' name is Capital letter. And Give the dates of movies")
+                .user("Generate the filmography of 5 movies for Angelina Jolie and Emma Watson.I want Films' name is Capital letter.")
                 .call().entity(new ParameterizedTypeReference<List<ActorFilms>>() {});
     }
 

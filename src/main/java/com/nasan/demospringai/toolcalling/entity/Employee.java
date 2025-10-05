@@ -12,6 +12,8 @@ public class Employee {
     private String email;
     private boolean available;
 
+    private int age;
+
     public Long getId() {
         return id;
     }
@@ -42,5 +44,13 @@ public class Employee {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

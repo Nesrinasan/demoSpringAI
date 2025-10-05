@@ -5,6 +5,8 @@ import com.nasan.demospringai.toolcalling.entity.EmployeeRepository;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeTools {
 
@@ -18,7 +20,6 @@ public class EmployeeTools {
 
     /*   *//**
      * resultConverter deffault is DefaultToolCallResultConverter
-     * @param id
      * @return
      *//*
     @Tool(description = "Retrieve employee information")
@@ -30,9 +31,7 @@ public class EmployeeTools {
     //@Tool(returnDirect = true)
 
     @Tool
-    Employee getEmployeeInfo(Long id) {
-        Employee employee = employeeRepository.findById(id).get();
-        System.out.printf("Employee %s is %s%n", employee.getName(), employee.isAvailable() ? "available" : "not available");
-        return employee;
+    List<Employee> getAllEmplooye() {
+        return employeeRepository.findAll();
     }
 }

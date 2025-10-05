@@ -15,8 +15,6 @@ public class ToolCallingController {
         this.chatModel = chatModel;
     }
 
-
-
     @RequestMapping("/noToolCalling/currentTime")
     public String noToolCallingCurrentTime(){
 

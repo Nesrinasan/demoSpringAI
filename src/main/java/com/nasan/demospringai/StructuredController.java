@@ -29,7 +29,7 @@ public class StructuredController {
     @GetMapping("/by-author")
     public Author hello(@RequestParam(defaultValue = "Robert C. Martin") String author){
         String template = """
-                Generate  a list of books written by {author}. you should get the name as name, books as books and link as link created date as date .
+               Generate  a list of books written by {author}.  and  personal link  .
                    {format}
                 """;
 
@@ -41,7 +41,7 @@ public class StructuredController {
     }
 
     //       String template = """
-    //                Generate  a list of books written by {author}. you should get the name as name, books as books and link as link and created date as date  .
+    //                Generate  a list of books written by {author}.  and  personal link and his age  .
     //                   {format}
     //                """;
 
